@@ -54,5 +54,3 @@ The Flutter frontend interacts with the backend through REST APIs and WebSockets
 
 
 
-> Note: The full backend source code is private as I aim to publish the app on the playstore.  
-> This repository demonstrates the architecture, workflows, screenshots.
