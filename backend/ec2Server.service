@@ -1,0 +1,29 @@
+[Unit]
+Description=Konnect server 
+After=network.target
+
+[Service]
+# The user that will run the app
+User=ubuntu
+Group=ubuntu
+
+# IMPORTANT: This is why your .env was failing. 
+# It sets the 'context' to your app folder.
+WorkingDirectory=/home/ubuntu/
+
+# Path to your compiled binary
+ExecStart=/home/ubuntu/serverBinary
+
+# Tells systemd to read variables from the file as a backup
+EnvironmentFile=/home/ubuntu/.env
+
+# Auto-restart if it crashes
+Restart=always
+RestartSec=5
+
+# Keeps your logs organized
+StandardOutput=append:/home/ubuntu/app.log
+StandardError=append:/home/ubuntu/error.log
+
+[Install]
+WantedBy=multi-user.target
